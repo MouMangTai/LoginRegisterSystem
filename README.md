@@ -4,6 +4,7 @@
  2. 人性化的交互
  3. 利用正则表达式判断用户注册是否正确
  4. 利用Filter拦截，需登陆才能访问其他页面
+ 5. 数据库保存用户信息
 ## 运行环境
 javaEE + tomcat + mysql +
 jsp + servlet + bootstrap + jquery

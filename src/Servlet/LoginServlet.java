@@ -1,11 +1,17 @@
 package Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import Bean.User;
 import Dao.UserDao;
@@ -31,15 +37,27 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		User u = new UserDao().getUser(mail, password);
 		request.getSession().setAttribute("LastLoginMail", mail);
-		request.getSession().setAttribute("LastLoginPassword", password);
+		User u = new UserDao().getUser(mail);
 		if(u==null){
-			response.sendRedirect("Login.jsp");
+			PrintWriter out = response.getWriter();
+			String a = URLEncoder.encode("用户不存在", "UTF-8"); 
+			out.print("<script>alert(decodeURIComponent('"+a+"'));window.location.href='Login.jsp'</script>");
+			//response.sendRedirect("Login.jsp");
 		}else{
-			request.getSession().setAttribute("user", u);
-			response.sendRedirect("LoginSuccess.jsp");
+			u = new UserDao().getUser(mail,password);
+			if(u==null){
+				PrintWriter out = response.getWriter();
+				String a = URLEncoder.encode("密码错误", "UTF-8"); 
+				out.print("<script>alert(decodeURIComponent('"+a+"'));window.location.href='Login.jsp'</script>");
+			}else{
+				request.getSession().setAttribute("user", u);
+				PrintWriter out = response.getWriter();
+				String a = URLEncoder.encode("登陆成功", "UTF-8"); 
+				out.print("<script>alert(decodeURIComponent('"+a+"'));window.location.href='LoginSuccess.jsp'</script>");
+			}
 		}
+		
 	}
 
 	/**

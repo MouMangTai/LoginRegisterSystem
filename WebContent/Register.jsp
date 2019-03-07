@@ -10,6 +10,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+	function judge(){
+		var a = document.getElementById("mail").value;
+		var b = document.getElementById("password").value;
+		var c = document.getElementById("name").value;
+		if(a==""||b==""||c==""){
+			alert("请输入完整的信息");
+			return false;
+		}
+		return true;
+	}
+</script>
 <body>
 <center>
 	<h1>
@@ -19,11 +31,11 @@
 <hr>
 	<table align="center" >
 		<form action="RegisterServlet" method="post">
-			<tr><td>电子邮箱:</td><td><input type="text" name="mail" value="${LastRegisterMail }" placeholder="" class="form-control"></td></tr>
+			<tr><td>电子邮箱:</td><td><input type="text" name="mail" id="mail"value="${LastRegisterMail }" placeholder="输入邮箱" class="form-control"></td></tr>
 			<tr><td colspan="2"><span id="checkResultMail"></span></td></tr>
-			<tr><td>密码:</td><td><input type="password" name="password" value="${LastRegisterPassword }"placeholder="" class="form-control"></td></tr>
+			<tr><td>密码:</td><td><input type="password" name="password" id="password"value="${LastRegisterPassword }"placeholder="输入密码" class="form-control"></td></tr>
 			<tr><td colspan="2"><span id="checkResultMima"></span></td></tr>
-			<tr><td>用户名:</td><td><input type="text" name="name" value="${LastRegisterName }"placeholder="" class="form-control"></td></tr>
+			<tr><td>用户名:</td><td><input type="text" name="name" id="name"value="${LastRegisterName }"placeholder="4-16位(字母,数字,下划线)" class="form-control"></td></tr>
 			<tr><td colspan="2"><span id="checkResultMima"></span></td></tr>
 			<tr ><td colspan="2"><input class="btn btn-block" type="submit" value="注册" onclick="return judge();"></td></tr>
 			<tr><td align="right" colspan="2"><font size="1"><a href="Login.jsp" >返回</a></font></td></tr>

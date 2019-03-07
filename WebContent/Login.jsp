@@ -13,21 +13,15 @@
 <title>登陆界面</title>
 </head>
 <script>
-function judge(){
-	var x = document.getElementById("mail").value;
-	var y = document.getElementById("mima").value;
-	if(x==""&&y==""){
-		alert("请输入用户名和密码");
-		return false;
-	}else if(x==""){
-		alert("请输入用户名");
-		return false;
-	}else if(y==""){
-		alert("请输入密码");
-		return false;
+	function judge(){
+		var a = document.getElementById("mail").value;
+		var b = document.getElementById("password").value;
+		if(a==""||b==""){
+			alert("请输入完整的信息");
+			return false;
+		}
+		return true;
 	}
-	return true;
-}
 </script>
 <body>
 	<center>
@@ -36,8 +30,8 @@ function judge(){
     <hr>
 	<table align="center" >
 		<form action="login" method="post">
-			<tr><td>邮箱:</td><td><input type="text" name="mail" value="${LastLoginMail }" placeholder="输入邮箱" class="form-control"></td></tr>
-			<tr><td>密码:</td><td><input type="password" name="password" value="${LastLoginPassword }"  placeholder="输入密码" class="form-control"></td></tr>
+			<tr><td>邮箱:</td><td><input type="text" name="mail" id="mail" value="${LastLoginMail }" placeholder="输入邮箱" class="form-control"></td></tr>
+			<tr><td>密码:</td><td><input type="password" name="password" id="password"  placeholder="输入密码" class="form-control"></td></tr>
 			<tr><td colspan="2"><input  class="btn btn-block" type="submit" value="登陆" onclick="return judge();"></td></tr>
 			<tr><td align="right" colspan="2"><font size="1">没有账户请先<a href="Register.jsp" >注册</a></font></td></tr>
 		</form>

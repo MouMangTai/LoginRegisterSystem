@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${user.name }
+	用户名${user.name }
+	用户邮箱${user.mail }
 </body>
 </html>

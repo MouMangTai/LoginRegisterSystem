@@ -1,4 +1,9 @@
 # LoginRegisterSystem
+一个运用了MVC模式及JavaWeb三大框架的注册和登录系统
+## MVC模式
+实现模型(bean)、视图(jsp)、控制器(servlet)三者的分离
+## JavaWeb三大框架
+实现Web层、Business(业务逻辑层)、Dao(数据层)三者内容的分离。将xml文件当作数据库，用Dao对其进行读取。
 ## 功能描述
  1. 具有基本的登陆注册功能
  2. 人性化的交互

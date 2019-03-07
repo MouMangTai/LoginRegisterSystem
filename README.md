@@ -13,8 +13,12 @@ mysql-connector-java-5.0.8-bin.jar
 ## 运行显示
 ![Image text](https://raw.githubusercontent.com/MouMangTai/LoginRegisterSystem/master/images/20190307154527.png)
 ![Image text](https://raw.githubusercontent.com/MouMangTai/LoginRegisterSystem/master/images/20190307154537.png)
-##数据库操作
-
+## 数据库操作
+ 1. 建库 create database LoginRegisterSystem
+ 2. 建表 `create table users( mail varchar(255), password varchar(255),
+    name varchar(255) )`
+ 3. name支持中文 `alter table users change name name varchar(100) character
+    set utf8 collate utf8_unicode_ci`
 ## 联系方式
 王琼弟 
 手机：13012417705 
